@@ -7,6 +7,6 @@ namespace WC.YouthLearning.BLL
 {
     public class Class
     {
-        int i = 666;
+        int i = 777;
     }
 }
