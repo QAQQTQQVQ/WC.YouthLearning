@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WC.YouthLearning.BLL;
+using WC.YouthLearning.DAL;
 using WC.YouthLearning.Models;
 
 namespace WC.YouthLearning
@@ -37,7 +39,8 @@ namespace WC.YouthLearning
             {
                 options.UseSqlServer(connection);
             });
-
+            services.AddScoped(typeof(BaseDal<>));
+            services.AddScoped(typeof(BaseBll<>));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
