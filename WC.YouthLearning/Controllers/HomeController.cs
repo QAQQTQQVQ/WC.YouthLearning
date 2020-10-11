@@ -11,8 +11,8 @@ namespace WC.YouthLearning.Controllers
 {
     public class HomeController : Controller
     {
-        private BaseBll<student> db;
-        public HomeController(BaseBll<student> _db)
+        private IStudentBll db;
+        public HomeController(IStudentBll _db)
         {
             db = _db;
         }

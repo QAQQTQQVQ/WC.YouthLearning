@@ -41,6 +41,7 @@ namespace WC.YouthLearning
             });
             services.AddScoped(typeof(BaseDal<>));
             services.AddScoped(typeof(BaseBll<>));
+            services.AddScoped<IStudentBll,StudentBll>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

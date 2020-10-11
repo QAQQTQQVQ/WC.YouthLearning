@@ -9,7 +9,7 @@ namespace WC.YouthLearning.BLL
 {
     public class BaseBll<T> where T : class, new()
     {
-        private BaseDal<T> CurrentDal;
+        public BaseDal<T> CurrentDal;
         public BaseBll(BaseDal<T> cd)
         {
             CurrentDal = cd;
