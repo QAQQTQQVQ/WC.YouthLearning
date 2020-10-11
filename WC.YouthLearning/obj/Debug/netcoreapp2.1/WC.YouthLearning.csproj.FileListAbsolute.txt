@@ -33,3 +33,11 @@ H:\Youth_Learning\WC.YouthLearning\WC.YouthLearning\bin\Debug\netcoreapp2.1\WC.Y
 H:\Youth_Learning\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.Views.pdb
 H:\Youth_Learning\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.genruntimeconfig.cache
 H:\Youth_Learning\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.csproj.CopyComplete
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.csprojAssemblyReference.cache
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.csproj.CoreCompileInputs.cache
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.RazorAssemblyInfo.cache
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.RazorAssemblyInfo.cs
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.AssemblyInfoInputs.cache
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.AssemblyInfo.cs
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.dll
+C:\Users\Funto\Source\Repos\WC.YouthLearning\WC.YouthLearning\obj\Debug\netcoreapp2.1\WC.YouthLearning.pdb
