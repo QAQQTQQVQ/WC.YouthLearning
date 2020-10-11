@@ -16,10 +16,10 @@ namespace WC.YouthLearning.Controllers
         {
             studentBll = _studentBll;
         }
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
             List<student> students = new List<student>();
-            students = studentBll.GetEntities(n => n.id > 0).ToList();
+            students =  studentBll.GetEntities( n => n.id > 0).ToList();
          return View(students);
         }
 
