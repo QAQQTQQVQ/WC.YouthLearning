@@ -11,7 +11,7 @@ namespace WC.YouthLearning.BLL
     {
         public StudentBll(BaseDal<student> cd):base(cd)
         {
-            CurrentDal = cd;//666
+            CurrentDal = cd;//666777
         }
 
         public int DeleteListByLogical(List<int> ids)
