@@ -4,20 +4,21 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WC.YouthLearning.BLL;
 using WC.YouthLearning.Models;
 
 namespace WC.YouthLearning.Controllers
 {
     public class HomeController : Controller
     {
-        private DataContext db;
-        public HomeController(DataContext _db)
+        private BaseBll<student> db;
+        public HomeController(BaseBll<student> _db)
         {
             db = _db;
         }
         public IActionResult Index()
         {
-         string name=db.student.First().name;
+            string name = db.GetEntities(n=>n.id==1).FirstOrDefault().name;
 
         ViewBag.Name = name;
          return View();
