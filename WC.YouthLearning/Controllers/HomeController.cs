@@ -11,17 +11,16 @@ namespace WC.YouthLearning.Controllers
 {
     public class HomeController : Controller
     {
-        private IStudentBll db;
-        public HomeController(IStudentBll _db)
+        private IStudentBll studentBll;
+        public HomeController(IStudentBll _studentBll)
         {
-            db = _db;
+            studentBll = _studentBll;
         }
         public IActionResult Index()
         {
-            string name = db.GetEntities(n=>n.id==1).FirstOrDefault().name;
-
-        ViewBag.Name = name;
-         return View();
+            List<student> students = new List<student>();
+            students = studentBll.GetEntities(n => n.id > 0).ToList();
+         return View(students);
         }
 
         public IActionResult About()
