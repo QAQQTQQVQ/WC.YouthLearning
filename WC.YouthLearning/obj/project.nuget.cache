@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rZwA5XiAS0lv7dSodcteAtlBNcHW73cqL66VU6prJztvjKTYvdMAAr1yClzvzOrxsKSM05vcSOC9U1q6/b3JEw==",
+  "dgSpecHash": "n6gNp769dZZHZGmKFak0s0Bgu4kqAktDub+OvqwC3QnMzrBM62ytAWIX5SrHc+A6ohldhjvCPi3csJ0vWW5fIQ==",
   "success": true,
-  "projectFilePath": "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
+  "projectFilePath": "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FYZY\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\FYZY\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

@@ -11880,23 +11880,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Funto\\.nuget\\packages\\": {},
+    "C:\\Users\\FYZY\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Funto\\Source\\Repos\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
+      "projectUniqueName": "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
       "projectName": "WC.YouthLearning",
-      "projectPath": "C:\\Users\\Funto\\Source\\Repos\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
-      "packagesPath": "C:\\Users\\Funto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Funto\\Source\\Repos\\WC.YouthLearning\\WC.YouthLearning\\obj\\",
+      "projectPath": "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
+      "packagesPath": "C:\\Users\\FYZY\\.nuget\\packages\\",
+      "outputPath": "H:\\WC.YouthLearning\\WC.YouthLearning\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Funto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\FYZY\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11932,16 +11932,23 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

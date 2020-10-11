@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj": {}
+    "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj": {}
   },
   "projects": {
-    "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj": {
+    "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
+        "projectUniqueName": "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
         "projectName": "WC.YouthLearning",
-        "projectPath": "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
+        "projectPath": "H:\\WC.YouthLearning\\WC.YouthLearning\\WC.YouthLearning.csproj",
         "packagesPath": "C:\\Users\\FYZY\\.nuget\\packages\\",
-        "outputPath": "H:\\Youth_Learning\\WC.YouthLearning\\WC.YouthLearning\\obj\\",
+        "outputPath": "H:\\WC.YouthLearning\\WC.YouthLearning\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
