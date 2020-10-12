@@ -16,7 +16,7 @@ namespace WC.YouthLearning.Common
             byte[] arr = Convert.FromBase64String(iss);
             MemoryStream ms = new MemoryStream(arr);
             Bitmap bmp = new Bitmap(ms);
-            bmp.Save(@"~/StudentImage/test.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            bmp.Save(@"./wwwroot/StudentImage/test.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             ms.Close();
             return true;
         }
