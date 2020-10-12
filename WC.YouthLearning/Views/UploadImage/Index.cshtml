@@ -1,23 +1,11 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
-
-
-
-    @{
-        if (Model == null)
-        { <a>null</a>}
-        else
-        { <a>@Model</a>}
-    }
+﻿  
+<form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
     <input type="text" name="name" id="name" />
+    <div id="imgUploadX"></div>
+    <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
     <label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
-    <form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
-        <div id="imgUploadX"></div>
-        <input type="file" id="uploadFile" class="clip" accept="image/*">
-        <input type="submit" value="tijaio" />
-    </form>
+    <input type="submit" value="提交" />
+</form>
 
     <script>
         var eleUploadFile = document.getElementById('uploadFile');
