@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WC.YouthLearning.BLL;
 using WC.YouthLearning.Models;
 
@@ -16,32 +17,10 @@ namespace WC.YouthLearning.Controllers
         {
             studentBll = _studentBll;
         }
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
-            List<student> students = new List<student>();
-            students =  studentBll.GetEntities( n => n.id > 0).ToList();
-         return View(students);
+         var students = studentBll.GetEntities(n => n.id > 0).ToListAsync();
+         return View(await students);
         }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-      
     }
 }

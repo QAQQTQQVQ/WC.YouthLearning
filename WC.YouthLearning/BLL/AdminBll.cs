@@ -7,11 +7,11 @@ using WC.YouthLearning.Models;
 
 namespace WC.YouthLearning.BLL
 {
-    public class StudentBll : BaseBll<student>,IStudentBll
+    public class AdminBll:BaseBll<admin>,IAdminBll
     {
-        public StudentBll(BaseDal<student> cd):base(cd)
-        {
-            CurrentDal = cd;
-        }
+        public AdminBll(BaseDal<admin> cd) : base(cd)
+            {
+                CurrentDal = cd;
+            }
     }
 }
