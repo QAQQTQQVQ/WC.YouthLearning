@@ -3,5 +3,78 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+
+
+    @{
+        if (Model == null)
+        { <a>null</a>}
+        else
+        { <a>@Model</a>}
+    }
+    <input type="text" name="name" id="name" />
+    <label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
+    <form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
+        <div id="imgUploadX"></div>
+        <input type="file" id="uploadFile" class="clip" accept="image/*">
+        <input type="submit" value="tijaio" />
+    </form>
+
+    <script>
+        var eleUploadFile = document.getElementById('uploadFile');
+        var eleImgUploadX = document.getElementById('imgUploadX');
+        if (history.pushState) {
+            eleUploadFile.addEventListener('change', function (event) {
+                var reader = new FileReader();
+                var file = event.target.files[0] || event.dataTransfer.files[0];
+                reader.onload = function (e) {
+                    var base64 = e.target.result;
+                    if (base64.length > 1024 * 500) {
+                        alert('图片尺寸请小于500K');
+                        return;
+                    } else {
+                        // 使用canvas合成图片，并base64化
+                        imgTogether(base64, function (url) {
+                            // 尺寸
+                            var size = 180 / (window.devicePixelRatio || 1);
+                            // 预览
+                            event.target.files[0] = url;
+                            //event.dataTransfer.files[0]=url;
+                            eleImgUploadX.innerHTML = '<img  src="' + url +  '" width="' + size + '" height="' + size + '">';
+                            eleImgUploadX.innerHTML = '<input id="myimg" name="myimg"  type="text" value="' + url + '"/>'
+                        });
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // canvas图片合成
+            var imgTogether = function (url, callback) {
+                var canvas = document.createElement('canvas');
+                var size = 500;
+                canvas.width = size;
+                canvas.height = size;
+
+                var context = canvas.getContext('2d');
+
+                // 这是上传图像
+                var imgUpload = new Image();
+                imgUpload.setAttribute("crossOrigin", 'Anonymous');
+                imgUpload.onload = function () {
+                    // 绘制
+                    context.drawImage(imgUpload, 0, 0, size, size, 0, 0, size, size);
+                    // 再次绘制
+                    var imgname = document.getElementById('name').value;
+                    context.font = "50px Verdana";
+                    context.fillText(imgname, 10, 50, 250);
+                    // 回调
+                    callback(canvas.toDataURL('image/png'));
+                };
+                imgUpload.src = url;
+            };
+        } else if (eleImgUploadX) {
+            eleImgUploadX.className = 'remind';
+            eleImgUploadX.innerHTML = '本演示IE10+下才有效果';
+        }
+    </script>
+
 
