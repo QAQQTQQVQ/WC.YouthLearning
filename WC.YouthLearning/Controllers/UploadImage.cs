@@ -26,11 +26,11 @@ namespace WC.YouthLearning.Controllers
             if(stu!=null)
             {
                 Common.SaveImage.ByStringToSave(name, myimg);
-                return Json("提交成功");
+                return Content("<script>alert('提交成功！安心睡吧！');window.location.href='../Home/Index';</script>");
             }
             else
             {
-                return Json("未找到该用户");
+                return Content("<script>alert('你确定是本班的？');window.location.href='../Home/Index';</script>");
             }
 
         }
