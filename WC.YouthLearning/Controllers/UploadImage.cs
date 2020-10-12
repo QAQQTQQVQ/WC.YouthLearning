@@ -24,7 +24,7 @@ namespace WC.YouthLearning.Controllers
         public async Task<IActionResult> Index(string name,string myimg)
         {
             var stu =await studentBll.GetEntities(u => u.name == name).FirstOrDefaultAsync();
-            if(myimg=="")
+            if(myimg==null)
                 return Content("<script>alert('图片未提交！');window.location.href='../Home/Index';</script>");
             if (stu!=null)
             {
