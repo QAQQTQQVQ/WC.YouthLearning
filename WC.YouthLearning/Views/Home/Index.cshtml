@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
 <div class="container my-2 ">
     <div class="row justify-content-center ">
         <div class="col-lg-9 col-12">
@@ -10,7 +11,7 @@
                 <div>
                     @foreach (student k in Model)
                     {
-                        <p>@k.name</p>
+                        <p>@k.name</p><button  class="btn btn-primary"></button>
                     }
                     <h4><strong>这是一个标题</strong></h4>
                     <p>这里应该放一些内容，可是目前还没有想好写什么</p>
@@ -129,3 +130,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+
+        
+
+    });
+</script>

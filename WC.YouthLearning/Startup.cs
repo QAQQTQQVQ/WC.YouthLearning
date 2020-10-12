@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,17 @@ namespace WC.YouthLearning
             services.AddScoped(typeof(BaseDal<>));
             services.AddScoped(typeof(BaseBll<>));
             services.AddScoped<IStudentBll,StudentBll>();
+            services.AddScoped<IAdminBll, AdminBll>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, option =>
+               {
+                   option.LoginPath = new PathString("/Login"); //设置登陆失败或者未登录授权的情况下，直接跳转的路径这里
+                                                                //设置cookie只读情况
+                    option.Cookie.HttpOnly = true;
+                    //cookie过期时间
+                    //option.Cookie.Expiration = TimeSpan.FromSeconds(10);//此属性已经过期忽略，使用下面的设置
+                    option.ExpireTimeSpan = new TimeSpan(1, 0, 0);//默认14天
+                });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
