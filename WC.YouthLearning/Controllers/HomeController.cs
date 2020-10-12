@@ -44,7 +44,14 @@ namespace WC.YouthLearning.Controllers
                     return Content("<script>alert('密码错误！');window.location.href='../Home/Index';</script>");
                 }
             }
-            
+        }
+        public async Task<IActionResult> Reset(int id)//重置某个学生提交数据
+        {
+            var student =await studentBll.GetEntities(n => n.id ==id).FirstOrDefaultAsync();
+            student.time = "";
+            student.sub = 0;
+            studentBll.Update(student);
+            return Content("<script>alert('重置该学生成功');window.location.href='../Home/Index';</script>");
         }
         public IActionResult Exite()
         {
@@ -58,7 +65,6 @@ namespace WC.YouthLearning.Controllers
             {
                 return Content("no");
             }
-          
         }
     }
 }
