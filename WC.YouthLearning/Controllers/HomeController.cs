@@ -46,5 +46,19 @@ namespace WC.YouthLearning.Controllers
             }
             
         }
+        public IActionResult Exite()
+        {
+            string name;
+            HttpContext.Request.Cookies.TryGetValue("uname", out name);
+            if (name != null)
+            {
+                return Content("ok");
+            }
+            else
+            {
+                return Content("no");
+            }
+          
+        }
     }
 }

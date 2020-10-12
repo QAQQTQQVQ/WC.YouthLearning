@@ -46,14 +46,14 @@
                         登录
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <form class="px-4 py-3">
+                        <form class="px-4 py-3" method="post" action="/Home/Login">
                             <div class="form-group">
                                 <label for="exampleDropdownFormEmail1">邮箱/用户名</label>
-                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="邮箱/用户名">
+                                <input type="text" class="form-control" name="uname" id="exampleDropdownFormEmail1" placeholder="邮箱/用户名">
                             </div>
                             <div class="form-group">
                                 <label for="exampleDropdownFormPassword1">密码</label>
-                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="密码">
+                                <input type="password" class="form-control" name="pwd" id="exampleDropdownFormPassword1" placeholder="密码">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="dropdownCheck">

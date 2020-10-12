@@ -44,16 +44,12 @@ namespace WC.YouthLearning
             services.AddScoped(typeof(BaseBll<>));
             services.AddScoped<IStudentBll,StudentBll>();
             services.AddScoped<IAdminBll, AdminBll>();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-               .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, option =>
-               {
-                   option.LoginPath = new PathString("/Login"); //设置登陆失败或者未登录授权的情况下，直接跳转的路径这里
-                                                                //设置cookie只读情况
-                    option.Cookie.HttpOnly = true;
-                    //cookie过期时间
-                    //option.Cookie.Expiration = TimeSpan.FromSeconds(10);//此属性已经过期忽略，使用下面的设置
-                    option.ExpireTimeSpan = new TimeSpan(1, 0, 0);//默认14天
-                });
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

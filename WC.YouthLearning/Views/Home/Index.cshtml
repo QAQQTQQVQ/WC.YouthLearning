@@ -9,9 +9,10 @@
         <div class="col-lg-9 col-12">
             <div class="pt-3 my-2 col-12 shadow-sm text-left bg-white">
                 <div>
+                    <button id="delall" class="btn btn-danger delall">全部重置</button>
                     @foreach (student k in Model)
                     {
-                        <p>@k.name</p><button  class="btn btn-primary"></button>
+                        <p>@k.name<button id="del" class="btn btn-danger del">重置</button></p> 
                     }
                     <h4><strong>这是一个标题</strong></h4>
                     <p>这里应该放一些内容，可是目前还没有想好写什么</p>
@@ -132,8 +133,16 @@
 </div>
 <script>
     $(function () {
+        $(".del").hide();
+        $(".delall").hide();
+        $.get("/Home/Exite", function (data) {
+            console.log(data);
+            if (data == "ok") {
+                $(".del").show();
+                $(".delall").show();
+            }}
+);
 
-        
 
     });
 </script>
