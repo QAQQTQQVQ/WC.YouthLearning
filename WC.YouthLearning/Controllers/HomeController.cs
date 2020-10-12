@@ -53,6 +53,13 @@ namespace WC.YouthLearning.Controllers
             studentBll.Update(student);
             return Content("<script>alert('重置该学生成功');window.location.href='../Home/Index';</script>");
         }
+        public async Task<IActionResult> ResetAll()//重置某个学生提交数据
+        {
+            var student = await studentBll.GetEntities(u=>u.id>0).ToListAsync();
+            
+            studentBll.UpdataList(student);
+            return Content("<script>alert('重置所有学生成功');window.location.href='../Home/Index';</script>");
+        }
         public IActionResult Exite()
         {
             string name;
