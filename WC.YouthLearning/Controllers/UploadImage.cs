@@ -27,7 +27,7 @@ namespace WC.YouthLearning.Controllers
             if (name != null)
             {
                 Common.SaveImage.CreateZip();
-                return Content("<script>alert('文件压缩完成！，即将下载');window.location.href='../StudentImage.zip';</script>", "text/html", System.Text.Encoding.UTF8);
+                return Content("<script>alert('文件压缩完成！即将下载');window.location.href='../StudentImage.zip';</script>", "text/html", System.Text.Encoding.UTF8);
             }
             else
             {

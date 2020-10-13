@@ -11,41 +11,15 @@
     .delall {
         display: none;
     }
-
 </style>
 <div class="container my-2 con ">
     <div class="row justify-content-center ">
         <div class="col-lg-9 col-12  my-2 ">
             <div class="pt-3 col-12 shadow-sm text-left bg-white">
+                <div>
+                    <h4><strong><em>5.0V</em>开始</strong></h4>
 
-                @*<form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
-            <input type="text" name="name" id="name" />
-            <div id="imgUploadX"></div>
-            <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
-            <label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
-            <input type="submit" value="提交" />
-        </form>*@
-
-                @*<a href="/Home/ResetAll"><input type="button" id="delall" class="btn btn-danger delall" value="全部重置"></a>
-        @foreach (student k in Model)
-        {
-            @if (k.sub == 0)
-            {
-                <p class="text-warning">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
-                <p>@k.time</p>
-                <p>积分：@k.num</p>
-            }
-            else
-            {
-                <p class="text-primary">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
-                <p>@k.time</p>
-                <p>积分：@k.num</p>
-            }
-        }*@
-                <div >
-                    <h4><strong>开始</strong></h4>
-                   
-                    <form  class="text-center" method="post" action="/UploadImage/Index" enctype="multipart/form-data">
+                    <form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
                         <p>第一步：</p>
                         <input type="text" class="form-control" name="name" id="name" />
                         <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
@@ -64,7 +38,7 @@
                     {
                         @if (k.sub == 0)
                         {
-                            <a class="btn btn-outline-warning text-warning">@k.sid@k.name</a>
+                            <a href="/Home/Show/@k.id" class="btn btn-outline-warning text-warning">@k.sid@k.name</a>
                         }
                     }
                     <p><a class="text-info">详细了解</a></p>
@@ -76,7 +50,7 @@
                     {
                         @if (k.sub == 1)
                         {
-                            <a class="btn btn-outline-primary text-primary">@k.sid@k.name</a>
+                            <a href="/Home/Show/@k.id" class="btn btn-outline-primary text-primary">@k.sid@k.name</a>
                         }
                     }
                     <p><a class="text-info">详细了解</a></p>
@@ -96,19 +70,20 @@
                 <div class="pt-3  col-12 shadow-sm text-center bg-white">
                     <div class="row   ">
                         <div class="col-xl-3 col-lg-6 col-3">
-                            <img src=".\images\分享共享.png" class="figure-img img-fluid rounded" alt="...">
+                            <img src="\images\分享共享.png" class="figure-img img-fluid rounded" alt="...">
                             <figcaption class="figure-caption">分享</figcaption>
+                            <a href="/UploadImage/CreateZip">创建下载数据</a>
                         </div>
                         <div class="col-xl-3  col-lg-6 col-3">
-                            <img src=".\images\列表清单.png" class="figure-img img-fluid rounded" alt="...">
+                            <img src="\images\列表清单.png" class="figure-img img-fluid rounded" alt="...">
                             <figcaption class="figure-caption">清单</figcaption>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-3">
-                            <img src=".\images\通知公告.png" class="figure-img img-fluid rounded" alt="...">
+                            <img src="\images\通知公告.png" class="figure-img img-fluid rounded" alt="...">
                             <figcaption class="figure-caption ">公告</figcaption>
                         </div>
                         <figure class="col-xl-3 col-lg-6 col-3">
-                            <img src=".\images\邮件邮箱.png" class="figure-img img-fluid rounded" alt="...">
+                            <img src="\images\邮件邮箱.png" class="figure-img img-fluid rounded" alt="...">
                             <figcaption class="figure-caption">邮件</figcaption>
                         </figure>
                     </div>
@@ -126,7 +101,7 @@
                 <div class="pt-3 my-2 col-12  shadow-sm text-center bg-white">
                     <div class="row border-bottom">
                         <div class="col-12 ">
-                            <p><img style="height:24px" src=".\images\sub_account.png" class="img-fluid" />个人中心</p>
+                            <p><img style="height:24px" src="\images\sub_account.png" class="img-fluid" />个人中心</p>
                         </div>
                     </div>
                     <div class="row my-2 " style="color:darkgray">
@@ -154,13 +129,13 @@
                         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src=".\images\3e3ce85346f6b5b9a3eb53d813d47780.jpeg" class="d-block w-100" alt="...">
+                                    <img src="\images\3e3ce85346f6b5b9a3eb53d813d47780.jpeg" class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src=".\images\22a9106001f83c855e968d90c66d8cc8.jpeg" class="d-block w-100" alt="...">
+                                    <img src="\images\22a9106001f83c855e968d90c66d8cc8.jpeg" class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src=".\images\d7aa640a17da9cf651edaa48f49d0870.jpeg" class="d-block w-100" alt="...">
+                                    <img src="\images\d7aa640a17da9cf651edaa48f49d0870.jpeg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
                         </div>
@@ -243,16 +218,16 @@
 </script>
 <script>
     $(function () {
-        $(window).resize(function () {
-            if (screen.width >= 1200) {
-                $(".con").addClass("container");
-            } else if (screen.width >= 992) {
-                $(".con").removeClass("container");
-            } else {
-                $(".con").removeClass("container");
-            }
-        })
-       
+        //$(window).resize(function () {
+        //    if (screen.width >= 1200) {
+        //        $(".con").addClass("container");
+        //    } else if (screen.width >= 992) {
+        //        $(".con").removeClass("container");
+        //    } else {
+        //        $(".con").removeClass("container");
+        //    }
+        //})
+
 
 
 
@@ -269,4 +244,43 @@
 
 
     });
+</script>
+<script>
+    var a = 100;
+    var b = 100;
+    var g = 100;
+    var mya = 0;
+    var myb = 0;
+    var myg = 0;
+    var myVar = setInterval(function () { myTimer() }, 100);
+    function myTimer() {
+        if ((mya != a) && (myb != b) && (myg != g)) {
+            if (a > mya) {
+                mya = mya + 1;
+                // document.getElementById("m1").innerText = a+" "+ mya;
+            }
+            else mya--;
+            if (b > myb) {
+                myb = myb + 1;
+                // document.getElementById("m2").innerText =b+" "+ myb;
+            }
+            else myb--;
+            if (g > myg) {
+                myg = myg + 1;
+                //document.getElementById("m3").innerText =g+" "+ myg;
+            }
+            else myg--;
+            //变化颜色
+            document.getElementById("tit").style.color = "rgb(" + mya + "," + myb + ", " + myg + ")";
+        }
+        else {
+            der();
+        }
+
+    }
+    function der() {
+        a = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+    }
 </script>

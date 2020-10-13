@@ -1,7 +1,16 @@
-﻿
+﻿@using WC.YouthLearning.Models
+@model student
 @{
     ViewData["Title"] = "Show";
 }
-
-<h2>Show</h2>
+    <div class="text-center">
+        <a href="/Home/Index" class="btn btn-primary">返回首页</a>
+        <h2>这里是 @Model.name 的空间</h2>
+        <p>学号：@Model.sid</p>
+        <p>提交时间： @Model.time</p>
+        @{string a = Model.name + ".jpg";}
+        <p><img src="../../StudentImage/@a"></p>
+        <a href="/Home/Reset/@Model.id" class="btn btn-primary">重置他的截图</a>
+        <a href="/Home/Vip/@Model.id" class="btn btn-primary">给他设置会员</a>
+    </div>
 
