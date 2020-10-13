@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WC.YouthLearning.BLL;
+using WC.YouthLearning.Common;
 using WC.YouthLearning.Models;
 
 namespace WC.YouthLearning.Controllers
@@ -123,13 +124,29 @@ namespace WC.YouthLearning.Controllers
         }
         public async Task<IActionResult> SubTotal()//返回提交总数
         {
-            var students = await studentBll.GetEntities(n => n.sub==1).ToListAsync();
+            var students = await studentBll.GetEntities(n => n.sub == 1).ToListAsync();
             return Content(students.Count().ToString());
         }
         public async Task<IActionResult> NotSubTotal()//返回未提交总数
         {
             var students = await studentBll.GetEntities(n => n.sub == 0).ToListAsync();
             return Content(students.Count().ToString());
+        }
+        public IActionResult Mail()//发送邮件
+        {
+            if (judge())
+            {
+                if (SendMail.Mail("454313500@qq.com", "请及时提交截图，提交地址：www.baidu.com"))
+                {
+                    return Content("<script>alert('全部邮件发送成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                }
+
+                else
+                {
+                    return Content("<script>alert('发送失败');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                }
+            }
+            return non();
         }
     }
 }

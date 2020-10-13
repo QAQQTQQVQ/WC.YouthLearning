@@ -44,6 +44,7 @@ namespace WC.YouthLearning
             services.AddScoped(typeof(BaseBll<>));
             services.AddScoped<IStudentBll,StudentBll>();
             services.AddScoped<IAdminBll, AdminBll>();
+            services.AddScoped<IMailBll, MailBll>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

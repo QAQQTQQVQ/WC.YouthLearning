@@ -20,14 +20,18 @@
                     <h4><strong><em>5.0V</em>开始</strong></h4>
 
                     <form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
-                        <p>第一步：</p>
-                        <input type="text" class="form-control" name="name" id="name" />
-                        <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
-                        <p>第二步：</p>
-                        <label class="btn btn-primary" for="uploadFile">选择图片</label>
-                        <div id="imgUploadX"></div>
-                        <p>第三步：</p>
-                        <input class="btn btn-primary" type="submit" value="确认提交" />
+
+                        <div class="p-2">
+                            <p>第一步： <input type="text" class="form-control" name="name" id="name" placeholder="请输入你的姓名" /></p>
+                        </div>
+                        <div class="p-2">
+                            <p>第二步：  <label class="btn btn-primary" for="uploadFile">选择图片</label></p>
+                            <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
+                            <div id="imgUploadX"></div>
+                        </div>
+                        <div class="p-2">
+                            <p>第三步：<input class="btn btn-primary" type="submit" value="确认提交" /></p>
+                        </div>
                     </form>
                     <a class="text-info">详细了解</a>
                     <hr>
@@ -83,7 +87,7 @@
                         </div>
                         <figure class="col-xl-3 col-lg-6 col-3">
                             <img src="\images\邮件邮箱.png" class="figure-img img-fluid rounded" alt="...">
-                            <figcaption class="figure-caption">邮件提醒</figcaption>
+                            <a href="/Home/Mail"><figcaption class="figure-caption">邮件提醒</figcaption></a>
                         </figure>
                     </div>
 

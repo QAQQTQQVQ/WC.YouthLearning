@@ -15,5 +15,6 @@ namespace WC.YouthLearning.Models
         }
         public DbSet<student> student { get; set; }
         public DbSet<admin> admin { get; set; }
+        public DbSet<mail> mail { get; set; }
     }
 }
