@@ -13,8 +13,8 @@ namespace WC.YouthLearning.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        [Display(Name = "学号")]
-        public string sid { get; set; }
+        [Display(Name = "学生姓名")]
+        public string uname { get; set; }
 
         [Display(Name = "邮箱账号")]
         public string smail { get; set; }

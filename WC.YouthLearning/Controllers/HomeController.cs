@@ -15,10 +15,12 @@ namespace WC.YouthLearning.Controllers
     {
         private IStudentBll studentBll;
         private IAdminBll adminBll;
-        public HomeController(IStudentBll _studentBll, IAdminBll _adminBll)
+        private IMailBll mailBll;
+        public HomeController(IStudentBll _studentBll, IAdminBll _adminBll,IMailBll _mailBll)
         {
             studentBll = _studentBll;
             adminBll = _adminBll;
+            mailBll = _mailBll;
         }
         public async Task<IActionResult> Index()//展示全部数据
         {
@@ -132,19 +134,22 @@ namespace WC.YouthLearning.Controllers
             var students = await studentBll.GetEntities(n => n.sub == 0).ToListAsync();
             return Content(students.Count().ToString());
         }
-        public IActionResult Mail()//发送邮件
+        public async Task<IActionResult> Mail()//发送邮件
         {
             if (judge())
             {
-                if (SendMail.Mail("454313500@qq.com", "请及时提交截图，提交地址：www.baidu.com"))
-                {
-                    return Content("<script>alert('全部邮件发送成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
-                }
 
-                else
+              var mails=await  mailBll.GetEntities(n => n.id > 0).ToListAsync();
+
+
+                foreach (mail k in mails)
                 {
-                    return Content("<script>alert('发送失败');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                    if (k.uname == "陈淳" || k.uname == "吴方圳" || k.uname == "欧阳海迪" || k.uname == "卫子轩")
+                    {
+                        SendMail.Mail(k.smail, "亲爱的" + k.uname + ",班委已开启青年大学习截图系统，请及时提交截图，提交地址：www.baidu.com");
+                    }
                 }
+                return Content("<script>alert('全部邮件发送成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
             return non();
         }
