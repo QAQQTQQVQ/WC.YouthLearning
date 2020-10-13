@@ -47,9 +47,7 @@ namespace WC.YouthLearning.Controllers
         }
         public async Task<IActionResult> Reset(int id)//重置某个学生提交数据
         {
-            string name;
-            HttpContext.Request.Cookies.TryGetValue("uname", out name);
-            if (name != null)
+            if (judge())
             {
                 var student = await studentBll.GetEntities(n => n.id == id).FirstOrDefaultAsync();
                 student.time = "";
@@ -57,20 +55,18 @@ namespace WC.YouthLearning.Controllers
                 studentBll.Update(student);
                 return Content("<script>alert('重置该学生成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
-            return Content("<script>alert('你无权这么做');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+            return non();
         }
         public async Task<IActionResult> ResetAll()//重置所有学生提交数据
         {
-            string name;
-            HttpContext.Request.Cookies.TryGetValue("uname", out name);
-            if (name != null)
+            if (judge())
             {
                 var student = await studentBll.GetEntities(u => u.id > 0).ToListAsync();
 
                 studentBll.UpdataList(student);
                 return Content("<script>alert('重置所有学生成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
-            return Content("<script>alert('你无权这么做');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+            return non();
         }
         public IActionResult Exite()//验证cookies是否存在
         {
@@ -92,9 +88,7 @@ namespace WC.YouthLearning.Controllers
         }
         public async Task<IActionResult> Vip(int id)
         {
-            string name;
-            HttpContext.Request.Cookies.TryGetValue("uname", out name);
-            if (name != null)
+            if (judge())
             {
                 var student = await studentBll.GetEntities(n => n.id == id).FirstOrDefaultAsync();
                 student.time = "VIP用户";
@@ -102,12 +96,40 @@ namespace WC.YouthLearning.Controllers
                 studentBll.Update(student);
                 return Content("<script>alert('设置VIP成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
-            return Content("<script>alert('你无权这么做');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+            return non();
         }
         public IActionResult OutLogin()//退出登入
         {
             HttpContext.Response.Cookies.Delete("uname");
             return Content("<script>alert('成功退出');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+        }
+        public IActionResult non()//无权跳转到主页
+        {
+            return Content("<script>alert('你无权这么做');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+        }
+
+        public bool judge()//判断是否登入
+        {
+            string name;
+            HttpContext.Request.Cookies.TryGetValue("uname", out name);
+            if (name != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async Task<IActionResult> SubTotal()//返回提交总数
+        {
+            var students = await studentBll.GetEntities(n => n.sub==1).ToListAsync();
+            return Content(students.Count().ToString());
+        }
+        public async Task<IActionResult> NotSubTotal()//返回未提交总数
+        {
+            var students = await studentBll.GetEntities(n => n.sub == 0).ToListAsync();
+            return Content(students.Count().ToString());
         }
     }
 }
