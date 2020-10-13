@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 实例 - 一个简单的网页</title>
+    <title>截图上传系统</title>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
-
     <script src="~/js/jquery-3.3.1.js"></script>
     <script src="~/js/bootstrap.js"></script>
     <style>
@@ -41,7 +40,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">仓库</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item outlogin">
+                    <a class="nav-link" href="/Home/OutLogin">注销登入</a>
+                </li>
+                <li class="nav-item dropdown adminlogin">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         管理员登录
                     </a>
@@ -69,8 +71,8 @@
                     </div>
                 </li>
                 <!--<li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>-->
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </li>-->
             </ul>
 
         </div>

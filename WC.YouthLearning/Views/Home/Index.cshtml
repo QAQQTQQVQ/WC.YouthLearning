@@ -38,7 +38,7 @@
                     {
                         @if (k.sub == 0)
                         {
-                            <a href="/Home/Show/@k.id" class="btn btn-outline-warning text-warning">@k.sid@k.name</a>
+                            <a class="btn btn-outline-warning text-warning">@k.sid@k.name</a>
                         }
                     }
                     <p><a class="text-info">详细了解</a></p>
@@ -218,6 +218,7 @@
 </script>
 <script>
     $(function () {
+        $(".outlogin").hide();
         //$(window).resize(function () {
         //    if (screen.width >= 1200) {
         //        $(".con").addClass("container");
@@ -227,22 +228,16 @@
         //        $(".con").removeClass("container");
         //    }
         //})
-
-
-
-
-
-
         $.get("/Home/Exite", function (data) {
             console.log(data);
             if (data == "ok") {
                 $(".del").show();
                 $(".delall").show();
+                $(".adminlogin").hide();
+                $(".outlogin").show();
             }
         }
         );
-
-
     });
 </script>
 <script>

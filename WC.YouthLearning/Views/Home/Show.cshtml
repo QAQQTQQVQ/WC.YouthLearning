@@ -10,7 +10,19 @@
         <p>提交时间： @Model.time</p>
         @{string a = Model.name + ".jpg";}
         <p><img src="../../StudentImage/@a"></p>
-        <a href="/Home/Reset/@Model.id" class="btn btn-primary">重置他的截图</a>
-        <a href="/Home/Vip/@Model.id" class="btn btn-primary">给他设置会员</a>
+        <a  href="/Home/Reset/@Model.id" class="btn btn-primary del" style="display:none">重置他的截图</a>
+        <a href="/Home/Vip/@Model.id" class="btn btn-primary vip" style="display:none">给他设置会员</a>
     </div>
 
+    <script>
+    $(function () {
+        $.get("/Home/Exite", function (data) {
+            console.log(data);
+            if (data == "ok") {
+                $(".del").show();
+                $(".vip").show();
+            }
+        }
+        );
+    });
+    </script>
