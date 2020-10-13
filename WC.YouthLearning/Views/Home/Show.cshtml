@@ -4,18 +4,21 @@
     ViewData["Title"] = "Show";
 }
 
-<div class="row mt-3">
-    <div class="text-center container shadow-sm bg-white">
+<div class="container-xl">
+<div class="row mt-3 ">
+
+    <div class="text-center m-auto shadow-sm bg-white">
         <a href="/Home/Index" class="btn btn-primary my-2 ">返回首页</a>
         <h2>这里是 @Model.name 的空间</h2>
         <p>学号：@Model.sid</p>
         <p>提交时间： @Model.time</p>
         @{string a = Model.name + ".jpg";}
-        <p><img class="img-fluid" src="../../StudentImage/@a"></p>
+        <p><img class="img-fluid" src="../../StudentImage/@a" style="width:50%;height:50%"></p>
         <a  href="/Home/Reset/@Model.id" class="btn btn-warning del" style="display:none">重置他的截图</a>
         <a href="/Home/Vip/@Model.id" class="btn btn-primary vip" style="display:none">给他设置会员</a>
     </div>
 </div>
+    </div>
     <script>
     $(function () {
         $.get("/Home/Exite", function (data) {
