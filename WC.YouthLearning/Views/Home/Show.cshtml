@@ -14,8 +14,10 @@
         <p>提交时间： @Model.time</p>
         @{string a = Model.name + ".jpg";}
         <p><img class="img-fluid" src="../../StudentImage/@a" style="width:50%;height:50%"></p>
+        <div class="my-2">
         <a  href="/Home/Reset/@Model.id" class="btn btn-warning del" style="display:none">重置他的截图</a>
         <a href="/Home/Vip/@Model.id" class="btn btn-primary vip" style="display:none">给他设置会员</a>
+            </div>
     </div>
 </div>
     </div>
@@ -26,8 +28,18 @@
             if (data == "ok") {
                 $(".del").show();
                 $(".vip").show();
+                $(".del").show();
+                $(".delall").show();
+                $(".adminlogin").hide();
+                $(".outlogin").show();
+            }
+            else {
+                $(".outlogin").hide();
             }
         }
         );
+
+
+
     });
     </script>
