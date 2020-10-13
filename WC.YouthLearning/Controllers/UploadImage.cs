@@ -35,7 +35,7 @@ namespace WC.YouthLearning.Controllers
             }
            
         }
-        public IActionResult DeleteAll()
+        public IActionResult DeleteAll()//重置全部文件
         {
             string name;
             HttpContext.Request.Cookies.TryGetValue("uname", out name);
@@ -52,7 +52,7 @@ namespace WC.YouthLearning.Controllers
             }
             else
             {
-                return Content("<script>alert('管理员未登录，请检查是否拥有权限');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                return Content("<script>alert('你无权这么做！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
         }
         public IActionResult DeleteByName(string stuname)
@@ -72,7 +72,7 @@ namespace WC.YouthLearning.Controllers
             }
             else
             {
-                return Content("<script>alert('管理员未登录，请检查是否拥有权限');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                return Content("<script>alert('你无权这么做！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
         }
         [HttpPost]
