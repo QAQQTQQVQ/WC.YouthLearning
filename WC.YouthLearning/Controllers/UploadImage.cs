@@ -35,6 +35,26 @@ namespace WC.YouthLearning.Controllers
             }
            
         }
+        public IActionResult DeleteAll()
+        {
+            string name;
+            HttpContext.Request.Cookies.TryGetValue("uname", out name);
+            if (name != null)
+            {
+                if(Common.SaveImage.DelectAll())
+                {
+                    return Content("<script>alert('文件删除完成');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                }
+                else
+                {
+                    return Content("<script>alert('文件删除异常，请联系赖师傅');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                }
+            }
+            else
+            {
+                return Content("<script>alert('管理员未登录，请检查是否拥有权限');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> Index(string name,string myimg)
         {
