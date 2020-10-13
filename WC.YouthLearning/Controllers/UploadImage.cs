@@ -31,7 +31,7 @@ namespace WC.YouthLearning.Controllers
             }
             else
             {
-                return Content("<script>alert('管理员未登录，请检查是否拥有权限');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                return Content("<script>alert('你无权这么做！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
            
         }

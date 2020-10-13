@@ -12,9 +12,9 @@
         display: none;
     }
 </style>
-<div class="container my-2 con ">
+<div class="container-xl my-xl-2 con ">
     <div class="row justify-content-center ">
-        <div class="col-lg-9 col-12  my-2 ">
+        <div class="col-lg-9 col-12   my-xl-2  ">
             <div class="pt-3 col-12 shadow-sm text-left bg-white">
                 <div>
                     <h4><strong><em>5.0V</em>开始</strong></h4>
@@ -65,35 +65,34 @@
 
             </div>
         </div>
-        <div class="col-lg-3 col-12 my-2 row">
+        <div class="col-lg-3 col-12 my-xl-2 row">
             <div>
                 <div class="pt-3  col-12 shadow-sm text-center bg-white">
                     <div class="row   ">
                         <div class="col-xl-3 col-lg-6 col-3">
                             <img src="\images\分享共享.png" class="figure-img img-fluid rounded" alt="...">
-                            <figcaption class="figure-caption">分享</figcaption>
-                            <a href="/UploadImage/CreateZip">创建下载数据</a>
+                            <a href="/UploadImage/CreateZip"><figcaption class="figure-caption">下载数据</figcaption></a>
                         </div>
                         <div class="col-xl-3  col-lg-6 col-3">
                             <img src="\images\列表清单.png" class="figure-img img-fluid rounded" alt="...">
-                            <figcaption class="figure-caption">清单</figcaption>
+                            <a href="/Home/ResetAll"><figcaption class="figure-caption">重置提交</figcaption></a>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-3">
                             <img src="\images\通知公告.png" class="figure-img img-fluid rounded" alt="...">
-                            <figcaption class="figure-caption ">公告</figcaption>
+                            <figcaption class="figure-caption ">重置文件</figcaption>
                         </div>
                         <figure class="col-xl-3 col-lg-6 col-3">
                             <img src="\images\邮件邮箱.png" class="figure-img img-fluid rounded" alt="...">
-                            <figcaption class="figure-caption">邮件</figcaption>
+                            <figcaption class="figure-caption">邮件提醒</figcaption>
                         </figure>
                     </div>
 
                     <div class="row">
                         <div class="col-6 border-top p-2">
-                            前台
+                            管理员
                         </div>
                         <div class="col-6 border-top border-left p-2">
-                            后台
+                            究极权限
                         </div>
                     </div>
                 </div>
@@ -101,25 +100,25 @@
                 <div class="pt-3 my-2 col-12  shadow-sm text-center bg-white">
                     <div class="row border-bottom">
                         <div class="col-12 ">
-                            <p><img style="height:24px" src="\images\sub_account.png" class="img-fluid" />个人中心</p>
+                            <p><img style="height:24px" src="\images\sub_account.png" class="img-fluid" />数据中心</p>
                         </div>
                     </div>
                     <div class="row my-2 " style="color:darkgray">
                         <div class="col-6 border-right p-2">
-                            <a>今日银收</a><br />
-                            <a class="text-primary"><strong>168</strong></a><br />
+                            <a>提交总数</a><br />
+                            <a class="text-primary"><strong id="sc"></strong></a><br />
                             <a><small>较前日上升<span class="text-primary">123%</span></small></a>
                         </div>
                         <div class="col-6 p-2">
-                            <a>今日银收</a><br />
-                            <a class="text-primary"><strong>168</strong></a><br />
+                            <a>未提交数</a><br />
+                            <a class="text-primary"><strong id="nsc"></strong></a><br />
                             <a><small>较前日上升<span class="text-primary">123%</span></small></a>
                         </div>
                     </div>
                     <div class="row border-top pt-2
 ">
                         <div class="col-12 ">
-                            <p>阿里云安全保护中</p>
+                            <p>腾讯云安全保护中</p>
                         </div>
                     </div>
                 </div>
@@ -141,20 +140,6 @@
                         </div>
                     </div>
                 </div>
-
-                <footer class="col" style="color:darkgray">
-                    <hr />
-                    <a> 江西服装学院-作业 &nbsp;</a> <br />
-                    <a>&copy; 2020 - 饭桶爱大米 &nbsp;</a> <br />
-                    <a style="color:darkgray" href="http://www.beian.miit.gov.cn/">赣ICP备20007874号</a> <br />
-                    <a style="color:darkgray" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36012102000233">
-                        <img src="D:\Download\备案图标.png" />
-                        赣公网安备 36012102000233号
-                    </a>
-                    <br />
-                    <a>友情链接：</a><a style="color:darkgray" href="http://yicraftcore.com/">意界</a>
-                </footer>
-
             </div>
         </div>
     </div>
@@ -238,6 +223,19 @@
             }
         }
         );
+
+        $.get("/Home/SubTotal", function (data) {
+            console.log(data);
+            $("#sc").text(data);
+        }
+        );
+        $.get("/Home/NotSubTotal", function (data) {
+            console.log(data);
+            $("#nsc").text(data);
+        }
+        );
+
+
     });
 </script>
 <script>
