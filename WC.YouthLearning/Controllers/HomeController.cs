@@ -30,7 +30,7 @@ namespace WC.YouthLearning.Controllers
              admin ad = await admin;
             if (ad == null)
             {
-                return Content("<script>alert('用户不存在！');window.location.href='../Home/Index';</script>");
+                return Content("<script>alert('用户不存在！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
             else
             {
@@ -41,7 +41,7 @@ namespace WC.YouthLearning.Controllers
                 }
                 else
                 {
-                    return Content("<script>alert('密码错误！');window.location.href='../Home/Index';</script>");
+                    return Content("<script>alert('密码错误！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
                 }
             }
         }
@@ -51,14 +51,14 @@ namespace WC.YouthLearning.Controllers
             student.time = "";
             student.sub = 0;
             studentBll.Update(student);
-            return Content("<script>alert('重置该学生成功');window.location.href='../Home/Index';</script>");
+            return Content("<script>alert('重置该学生成功');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
         }
         public async Task<IActionResult> ResetAll()//重置所有学生提交数据
         {
             var student = await studentBll.GetEntities(u=>u.id>0).ToListAsync();
             
             studentBll.UpdataList(student);
-            return Content("<script>alert('重置所有学生成功');window.location.href='../Home/Index';</script>");
+            return Content("<script>alert('重置所有学生成功');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
         }
         public IActionResult Exite()//验证cookies是否存在
         {
@@ -72,6 +72,11 @@ namespace WC.YouthLearning.Controllers
             {
                 return Content("no");
             }
+        }
+        public async Task<IActionResult> Show(int id)
+        {
+         var student=await studentBll.GetEntities(n => n.id == id).FirstOrDefaultAsync();
+         return View(student);
         }
     }
 }

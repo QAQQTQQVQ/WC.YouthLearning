@@ -15,52 +15,76 @@
 </style>
 <div class="container my-2 con ">
     <div class="row justify-content-center ">
-        <div class="col-lg-9 col-12">
-            <div class="pt-3 my-2 col-12 shadow-sm text-left bg-white">
-                <div>
-                    <form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
-                        <input type="text" name="name" id="name" />
-                        <div id="imgUploadX"></div>
+        <div class="col-lg-9 col-12  my-2 ">
+            <div class="pt-3 col-12 shadow-sm text-left bg-white">
+
+                @*<form method="post" action="/UploadImage/Index" enctype="multipart/form-data">
+            <input type="text" name="name" id="name" />
+            <div id="imgUploadX"></div>
+            <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
+            <label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
+            <input type="submit" value="提交" />
+        </form>*@
+
+                @*<a href="/Home/ResetAll"><input type="button" id="delall" class="btn btn-danger delall" value="全部重置"></a>
+        @foreach (student k in Model)
+        {
+            @if (k.sub == 0)
+            {
+                <p class="text-warning">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
+                <p>@k.time</p>
+                <p>积分：@k.num</p>
+            }
+            else
+            {
+                <p class="text-primary">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
+                <p>@k.time</p>
+                <p>积分：@k.num</p>
+            }
+        }*@
+                <div >
+                    <h4><strong>开始</strong></h4>
+                   
+                    <form  class="text-center" method="post" action="/UploadImage/Index" enctype="multipart/form-data">
+                        <p>第一步：</p>
+                        <input type="text" class="form-control" name="name" id="name" />
                         <input style="display: none;" type="file" id="uploadFile" class="clip" accept="image/*">
-                        <label class="ui-button ui-button-primary" for="uploadFile">选择图片</label>
-                        <input type="submit" value="提交" />
+                        <p>第二步：</p>
+                        <label class="btn btn-primary" for="uploadFile">选择图片</label>
+                        <div id="imgUploadX"></div>
+                        <p>第三步：</p>
+                        <input class="btn btn-primary" type="submit" value="确认提交" />
                     </form>
-                    <a href="/Home/ResetAll"><input type="button" id="delall" class="btn btn-danger delall" value="全部重置"></a>
+                    <a class="text-info">详细了解</a>
+                    <hr>
+                </div>
+                <div>
+                    <h4><strong>未提交学生</strong></h4>
                     @foreach (student k in Model)
                     {
                         @if (k.sub == 0)
                         {
-                            <p class="text-warning">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
-                            <p>@k.time</p>
-                            <p>积分：@k.num</p>
-                        }
-                        else
-                        {
-                            <p class="text-primary">@k.sid@k.name<a href="/Home/Reset/@k.id"><input type="button" id="del" value="重置" class="btn btn-danger del"></a></p>
-                            <p>@k.time</p>
-                            <p>积分：@k.num</p>
+                            <a class="btn btn-outline-warning text-warning">@k.sid@k.name</a>
                         }
                     }
-                    <h4><strong>这是一个标题</strong></h4>
-                    <p>这里应该放一些内容，可是目前还没有想好写什么</p>
-                    <a class="text-info">详细了解</a>
+                    <p><a class="text-info">详细了解</a></p>
                     <hr>
                 </div>
                 <div>
-                    <h4><strong>这是一个标题</strong></h4>
-                    <p>这里应该放一些内容，可是目前还没有想好写什么</p>
-                    <a class="text-info">详细了解</a>
+                    <h4><strong>已提交学生</strong></h4>
+                    @foreach (student k in Model)
+                    {
+                        @if (k.sub == 1)
+                        {
+                            <a class="btn btn-outline-primary text-primary">@k.sid@k.name</a>
+                        }
+                    }
+                    <p><a class="text-info">详细了解</a></p>
                     <hr>
                 </div>
                 <div>
-                    <h4><strong>这是一个标题</strong></h4>
-                    <p>这里应该放一些内容，可是目前还没有想好写什么</p>
-                    <a class="text-info">详细了解</a>
-                    <hr>
-                </div>
-                <div>
-                    <h4><strong>这是一个标题</strong></h4>
-                    <p>这里应该放一些内容，可是目前还没有想好写什么</p>
+                    <h4><strong>其他补充</strong></h4>
+                    <p>我们将会在接下来的版本进行更新</p>
                     <a class="text-info">详细了解</a>
                     <hr>
                 </div>
@@ -143,7 +167,6 @@
                     </div>
                 </div>
 
-
                 <footer class="col" style="color:darkgray">
                     <hr />
                     <a> 江西服装学院-作业 &nbsp;</a> <br />
@@ -156,6 +179,7 @@
                     <br />
                     <a>友情链接：</a><a style="color:darkgray" href="http://yicraftcore.com/">意界</a>
                 </footer>
+
             </div>
         </div>
     </div>

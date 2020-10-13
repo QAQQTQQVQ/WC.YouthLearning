@@ -27,7 +27,7 @@
         background-color: #F6F6F6;overflow-x:hidden
 ">
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <a class="navbar-brand" href="#">饭桶</a>
+        <a class="navbar-brand" href="#">青年大学习</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,13 +43,13 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        登录
+                        管理员登录
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <form class="px-4 py-3" method="post" action="/Home/Login">
                             <div class="form-group">
-                                <label for="exampleDropdownFormEmail1">邮箱/用户名</label>
-                                <input type="text" class="form-control" name="uname" id="exampleDropdownFormEmail1" placeholder="邮箱/用户名">
+                                <label for="exampleDropdownFormEmail1">管理员学号</label>
+                                <input type="text" class="form-control" name="uname" id="exampleDropdownFormEmail1" placeholder="管理员学号">
                             </div>
                             <div class="form-group">
                                 <label for="exampleDropdownFormPassword1">密码</label>
@@ -64,7 +64,7 @@
                             <button type="submit" class="btn btn-primary">登入</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">没有账号？现在<span class="text-primary">免费注册</span></a>
+                        <a class="dropdown-item" href="#">没有账号？现在<span class="text-primary">不给注册</span></a>
                         <a class="dropdown-item" href="#">忘记密码?</a>
                     </div>
                 </li>
@@ -75,13 +75,25 @@
 
         </div>
         <form class="form-inline my-2 my-lg-0 d-none d-lg-block">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="学生学号" aria-label="学生学号">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索学生</button>
         </form>
     </nav>
     @RenderBody()
 
 
     @RenderSection("Scripts", required: false)
+    <footer class="col text-center" style="color:darkgray">
+        <hr />
+        <a> 大数据学院 &nbsp;</a> 
+        <a>&copy; 2020 - 饭桶爱大米 &nbsp;</a>
+        <a style="color:darkgray" href="http://www.beian.miit.gov.cn/">赣ICP备20007874号</a> <br />
+        <a style="color:darkgray" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=36012102000233">
+            <img src="D:\Download\备案图标.png" />
+            赣公网安备 36012102000233号
+        </a>
+        <br />
+        <a>友情链接：</a><a style="color:darkgray" href="http://yicraftcore.com/">意界</a>
+    </footer>
 </body>
 </html>
