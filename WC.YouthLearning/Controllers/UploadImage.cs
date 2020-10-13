@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -83,11 +83,17 @@ namespace WC.YouthLearning.Controllers
                 return Content("<script>alert('图片未提交！');window.location.href='../Home/Index';</script>","text/html", System.Text.Encoding.UTF8);
             if (stu!=null)
             {
+                string diffImg = "安心睡吧！";
                 stu.sub = 1;
                 stu.time = DateTime.Now.ToString();
                 Common.SaveImage.ByStringToSave(name, myimg);
+                if(System.IO.File.Exists("./wwwroot/StudentImage/陈淳.jpg"))
+                if (Common.SaveImage.Compare("./wwwroot/StudentImage/" + name + ".jpg", "./wwwroot/StudentImage/陈淳.jpg") >20)
+                {
+                     diffImg = "但是与标准图片相差过大，请检查你的图片";
+                }
                 studentBll.Update(stu);
-                return Content("<script>alert('提交成功！安心睡吧！');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
+                return Content("<script>alert('提交成功！"+diffImg+"');window.location.href='../Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
             else
             {
