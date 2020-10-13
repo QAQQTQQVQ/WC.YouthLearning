@@ -169,7 +169,7 @@
             var file = event.target.files[0] || event.dataTransfer.files[0];
             reader.onload = function (e) {
                 var base64 = e.target.result;
-                if (base64.length > 1024 * 500) {
+                if (false) {
                     alert('图片尺寸请小于500K');
                     return;
                 } else {
@@ -179,7 +179,7 @@
                         var size = 180 / (window.devicePixelRatio || 1);
                         // 预览
                         event.target.files[0] = url;
-                        eleImgUploadX.innerHTML = '<img  src="' + url + '" width="' + size + '" height="' + size + '"><input style="display:none" id="myimg" name="myimg"  type="text" value="' + url + '"/>'
+                        eleImgUploadX.innerHTML = '<img  src="' + url + '" width="' + 648 + '" height="' + 1404 + '"><input style="display:none" id="myimg" name="myimg"  type="text" value="' + url + '"/>'
                     });
                 }
             };
@@ -190,8 +190,8 @@
         var imgTogether = function (url, callback) {
             var canvas = document.createElement('canvas');
             var size = 500;
-            canvas.width = size;
-            canvas.height = size;
+            canvas.width = 648;
+            canvas.height = 1404;
 
             var context = canvas.getContext('2d');
 
@@ -200,10 +200,12 @@
             imgUpload.setAttribute("crossOrigin", 'Anonymous');
             imgUpload.onload = function () {
                 // 绘制
-                context.drawImage(imgUpload, 0, 0, size, size, 0, 0, size, size);
+                //context.drawImage(imgUpload, 0, 0, size, size, 0, 0, 720, 1080);
+                context.drawImage(imgUpload, 0, 0, 648, 1404);
                 // 再次绘制
                 var imgname = document.getElementById('name').value;
                 context.font = "50px Verdana";
+                context.fillStyle = "red";
                 context.fillText(imgname, 10, 50, 250);
                 // 回调
                 callback(canvas.toDataURL('image/png'));
