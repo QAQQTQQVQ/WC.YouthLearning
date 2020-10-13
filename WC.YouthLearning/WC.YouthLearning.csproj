@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\StudentImage\捕获.PNG" />
+    <Compile Remove="wwwroot\StudentImage\**" />
+    <Content Remove="wwwroot\StudentImage\**" />
+    <EmbeddedResource Remove="wwwroot\StudentImage\**" />
+    <None Remove="wwwroot\StudentImage\**" />
   </ItemGroup>
 
   <ItemGroup>
