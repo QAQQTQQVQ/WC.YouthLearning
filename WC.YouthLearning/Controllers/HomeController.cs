@@ -144,10 +144,7 @@ namespace WC.YouthLearning.Controllers
 
                 foreach (mail k in mails)
                 {
-                    if (k.uname == "陈淳" || k.uname == "吴方圳" || k.uname == "欧阳海迪" || k.uname == "卫子轩")
-                    {
                         SendMail.Mail(k.smail, "亲爱的" + k.uname + ",班委已开启青年大学习截图系统，请及时提交截图，提交地址：www.baidu.com");
-                    }
                 }
                 return Content("<script>alert('全部邮件发送成功');window.location.href='/Home/Index';</script>", "text/html", System.Text.Encoding.UTF8);
             }
